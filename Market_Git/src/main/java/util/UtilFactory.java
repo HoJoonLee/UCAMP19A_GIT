@@ -14,7 +14,7 @@ import org.apache.ibatis.session.SqlSession;
 import org.apache.ibatis.session.SqlSessionFactory;
 import org.apache.ibatis.session.SqlSessionFactoryBuilder;
 
-public class DAOFactory {
+public class UtilFactory {
 	private static SqlSessionFactory factory = null;
 	
 	static {
@@ -56,7 +56,7 @@ public class DAOFactory {
 			} else {
 				session.rollback();
 			}
-			session.close();//자원반환 
+			session.close();
 		}
 	}
 }

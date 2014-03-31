@@ -5,32 +5,34 @@
 
 <mapper namespace="market">
 
-	<select id="selectAllDept" resultType="dept">
-		select * from dept01
-	</select>
-	
-	<select id="selectDeptByDeptno" 
-				parameterType="int" 
-				resultType="dept">
-		select * from dept01 where deptno=#{deptno}
-	</select>
-
-
-	<insert id="insertDept" parameterType="dept">
-		insert into dept01
-		values (#{deptno}, #{dname}, #{loc})
+	<insert id="insert" parameterType="market">
+		insert into market
+		values (#{mcode}, #{mname}, #{price},#{quant})
 	</insert>
-
-	<update id="updateDept" parameterType="dept">
-		update dept01
-		set loc = #{loc}
-		where deptno = #{deptno}
+	
+	<update id="update" parameterType="market">
+		update market
+		set mname = #{mname}, price = #{price}, quant = #{quant}
+		where mcode = #{mcode}
 	</update>
 	
-	<delete id="deleteDeptByDeptno" parameterType="int">
+	<delete id="deleteAll" >
 		delete
-		from dept01
-		where deptno = #{deptno}
+		from market
 	</delete>
+	
+	<delete id="delete" parameterType="int">
+		delete
+		from market
+		where mcode = #{mcode}
+	</delete>
+
+	<select id="selectAll" resultType="market">
+		select * from market
+	</select>
+	
+	<select id="selectMarket" parameterType="int" resultType="market">
+		select * from market where mcode=#{mcode}
+	</select>
 
 </mapper>

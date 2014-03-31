@@ -5,32 +5,33 @@
 
 <mapper namespace="deal">
 
-	<select id="selectAllDept" resultType="dept">
-		select * from dept01
-	</select>
-	
-	<select id="selectDeptByDeptno" 
-				parameterType="int" 
-				resultType="dept">
-		select * from dept01 where deptno=#{deptno}
-	</select>
-
-
-	<insert id="insertDept" parameterType="dept">
-		insert into dept01
-		values (#{deptno}, #{dname}, #{loc})
+	<insert id="dealIN" parameterType="deal">
+		insert into deal
+		values (#{dnum}, sysdate, #{mcode},0)
 	</insert>
-
-	<update id="updateDept" parameterType="dept">
-		update dept01
-		set loc = #{loc}
-		where deptno = #{deptno}
-	</update>
 	
-	<delete id="deleteDeptByDeptno" parameterType="int">
+	<insert id="dealOut" parameterType="deal">
+		insert into deal
+		values (#{dnum}, sysdate, #{mcode},1)
+	</insert>
+	
+	<delete id="deleteAll" >
 		delete
-		from dept01
-		where deptno = #{deptno}
+		from deal
 	</delete>
+	
+	<delete id="delete" parameterType="int">
+		delete
+		from deal
+		where dnum = #{dnum}
+	</delete>
+
+	<select id="selectAll" resultType="deal">
+		select * from deal
+	</select>
+	
+	<select id="selectDeal" 	parameterType="int" resultType="deal">
+		select * from deal where dnum=#{dnum}
+	</select>
 
 </mapper>

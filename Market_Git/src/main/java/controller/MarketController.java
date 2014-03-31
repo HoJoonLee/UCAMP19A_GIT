@@ -1,10 +1,4 @@
-﻿/*controller 주요기능
- * 1. client의 모든 요청을 수락해서 요청 구분 후 해당 biz 실행시키는 중제자 가능
- * 
- * 
- * */
-
-package controller;
+﻿package controller;
 
 
 

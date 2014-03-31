@@ -5,32 +5,34 @@
 
 <mapper namespace="buylist">
 
-	<select id="selectAllDept" resultType="dept">
-		select * from dept01
-	</select>
-	
-	<select id="selectDeptByDeptno" 
-				parameterType="int" 
-				resultType="dept">
-		select * from dept01 where deptno=#{deptno}
-	</select>
-
-
-	<insert id="insertDept" parameterType="dept">
-		insert into dept01
-		values (#{deptno}, #{dname}, #{loc})
+	<insert id="insert" parameterType="buylist">
+		insert into buylist
+		values (#{id}, #{name}, #{cost},#{point},#{buylist})
 	</insert>
-
-	<update id="updateDept" parameterType="dept">
-		update dept01
-		set loc = #{loc}
-		where deptno = #{deptno}
+	
+	<update id="update" parameterType="buylist">
+		update buylist
+		set name = #{name}, cost = #{cost}, point = #{point}, buylist = #{buylist}
+		where id = #{id}
 	</update>
 	
-	<delete id="deleteDeptByDeptno" parameterType="int">
+	<delete id="deleteAll" >
 		delete
-		from dept01
-		where deptno = #{deptno}
+		from buylist
 	</delete>
+	
+	<delete id="delete" parameterType="int">
+		delete
+		from buylist
+		where id = #{id}
+	</delete>
+
+	<select id="selectAll" resultType="buylist">
+		select * from buylist
+	</select>
+	
+	<select id="selectBuyList" 	parameterType="int" resultType="buylist">
+		select * from buylist where id=#{id}
+	</select>
 
 </mapper>
