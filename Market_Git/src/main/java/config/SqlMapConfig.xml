@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+
+<!DOCTYPE configuration PUBLIC "-//mybatis.org//DTD Config 3.0//EN" 
+	"mybatis-3-config.dtd">
+
+<configuration>
+	<properties  resource="config/driver.properties"/>
+	
+	<typeAliases>
+		<typeAlias type="model.domain.Market" alias="market"/>
+		<typeAlias type="model.domain.Deal" alias="deal"/>
+		<typeAlias type="model.domain.BuyList" alias="buylist"/>
+	</typeAliases>
+
+	<environments default="env">			
+
+		<environment id="env">
+			<transactionManager type="JDBC" />
+			<dataSource type="POOLED">
+				<property name="driver" value="${driver}" />
+				<property name="url" value="${url}" />
+				<property name="username" value="${id}" />
+				<property name="password" value="${pw}" />
+			</dataSource>
+		</environment>
+
+	</environments>
+
+	<mappers>
+		<mapper resource="config/market.xml" />
+		<mapper resource="config/deal.xml" />
+		<mapper resource="config/buylist.xml" />
+	</mappers>
+
+</configuration>
+
+
