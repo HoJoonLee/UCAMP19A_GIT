@@ -1,5 +1,6 @@
 package model.dao;
 
+import java.sql.SQLException;
 import java.util.ArrayList;
 
 import model.domain.Deal;
@@ -11,7 +12,7 @@ import util.UtilFactory;
 
 public class DealDAO {
 	
-	public static void dealIn(Deal deal) throws Exception {
+	public static void dealIn(Deal deal) throws SQLException {
 		SqlSession session = UtilFactory.getSqlSession(true);
 		try {
 			session.insert("deal.dealIN", deal);
@@ -20,7 +21,7 @@ public class DealDAO {
 		}
 	}
 	
-	public static void dealOut(Deal deal) throws Exception {
+	public static void dealOut(Deal deal) throws SQLException {
 		SqlSession session = UtilFactory.getSqlSession(true);
 		try {
 			session.insert("deal.dealOut", deal);
@@ -29,7 +30,7 @@ public class DealDAO {
 		}
 	}
 	
-	public static void deleteAll() throws Exception {
+	public static void deleteAll() throws SQLException {
 		SqlSession session = UtilFactory.getSqlSession(true);
 		try {
 			session.delete("deal.deleteAll") ;
@@ -38,7 +39,7 @@ public class DealDAO {
 		}
 	}
 	
-	public static void delete(int dnum) throws Exception {
+	public static void delete(int dnum) throws SQLException {
 		SqlSession session = UtilFactory.getSqlSession(true);
 		try {
 			session.delete("deal.delete",dnum) ;
@@ -47,7 +48,7 @@ public class DealDAO {
 		}
 	}
 	
-	public static ArrayList<Deal> getDealAll() throws Exception {
+	public static ArrayList<Deal> getDealAll() throws SQLException {
 		SqlSession session = UtilFactory.getSqlSession();
 		ArrayList<Deal> selectAll = null;
 		try {
@@ -58,7 +59,7 @@ public class DealDAO {
 		return selectAll;
 	}
 	
-	public static Deal getDeal(int dnum) throws Exception {
+	public static Deal getDeal(int dnum) throws SQLException {
 		SqlSession session = UtilFactory.getSqlSession();
 		Deal deal = null;
 		try {

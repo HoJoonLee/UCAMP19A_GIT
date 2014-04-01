@@ -1,15 +1,24 @@
 package model.dao;
 
+import java.sql.SQLException;
 import java.util.ArrayList;
+
+import model.domain.Deal;
+import model.domain.Market;
 
 import org.apache.ibatis.session.SqlSession;
 
-import model.domain.Market;
+import exception.DoubleException;
+
 import util.UtilFactory;
 
 public class MarketDAO {
 	
-	public static void insert(Market market) throws Exception {
+	public static void insert(Market market) throws SQLException, DoubleException {
+		if(isExist(market.getMcode())){
+			throw new DoubleException();
+		}
+		
 		SqlSession session = UtilFactory.getSqlSession(true);
 		try {
 			session.insert("market.insert", market);
@@ -18,17 +27,17 @@ public class MarketDAO {
 		}
 	}
 	
-	public void update(Market market) throws Exception {
+	public static void update(Deal deal) throws SQLException {
 		SqlSession session = UtilFactory.getSqlSession(true);
 		
 		try {
-			session.update("market.update", market);
+			session.update("market.update", deal);
 		} finally{
 			session.close();			
 		}
 	}
 	
-	public static void deleteAll() throws Exception {
+	public static void deleteAll() throws SQLException {
 		SqlSession session = UtilFactory.getSqlSession(true);
 		try {
 			session.delete("market.deleteAll") ;
@@ -37,7 +46,7 @@ public class MarketDAO {
 		}
 	}
 	
-	public static void delete(int mcode) throws Exception {
+	public static void delete(int mcode) throws SQLException {
 		SqlSession session = UtilFactory.getSqlSession(true);
 		try {
 			session.delete("market.delete",mcode) ;
@@ -46,7 +55,7 @@ public class MarketDAO {
 		}
 	}
 	
-	public static ArrayList<Market> getMarketAll() throws Exception {
+	public static ArrayList<Market> getMarketAll() throws SQLException {
 		SqlSession session = UtilFactory.getSqlSession();
 		ArrayList<Market> selectAll = null;
 		try {
@@ -57,7 +66,7 @@ public class MarketDAO {
 		return selectAll;
 	}
 	
-	public static Market getMarket(int mcode) throws Exception {
+	public static Market getMarket(int mcode) throws SQLException {
 		SqlSession session = UtilFactory.getSqlSession();
 		Market market = null;
 		try {
@@ -67,4 +76,22 @@ public class MarketDAO {
 		}
 		return market;
 	}
+	
+	private static boolean isExist(int mcode) throws SQLException{
+		boolean flag = false;
+		SqlSession session = UtilFactory.getSqlSession();
+		Market market = null;
+		
+		try{
+			market = (Market)session.selectOne("market.selectMarket");
+			if(market != null){
+				flag = true;
+			}
+		}finally{
+			session.close();
+		}
+		
+		return flag;
+	}
+	
 }

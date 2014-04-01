@@ -10,9 +10,9 @@
 		values (#{mcode}, #{mname}, #{price},#{quant})
 	</insert>
 	
-	<update id="update" parameterType="market">
+	<update id="update" parameterType="deal">
 		update market
-		set mname = #{mname}, price = #{price}, quant = #{quant}
+		set quant = #{dquant}
 		where mcode = #{mcode}
 	</update>
 	

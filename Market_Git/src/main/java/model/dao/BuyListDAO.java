@@ -1,5 +1,6 @@
 package model.dao;
 
+import java.sql.SQLException;
 import java.util.ArrayList;
 
 import model.domain.BuyList;
@@ -11,7 +12,7 @@ import util.UtilFactory;
 
 public class BuyListDAO {
 	
-	public static void insert(BuyList buylist) throws Exception {
+	public static void insert(BuyList buylist) throws SQLException {
 		SqlSession session = UtilFactory.getSqlSession(true);
 		try {
 			session.insert("buylist.insert", buylist);
@@ -20,7 +21,7 @@ public class BuyListDAO {
 		}
 	}
 	
-	public static void update(BuyList buylist) throws Exception {
+	public static void update(BuyList buylist) throws SQLException {
 		SqlSession session = UtilFactory.getSqlSession(true);
 		
 		try {
@@ -30,7 +31,7 @@ public class BuyListDAO {
 		}
 	}
 	
-	public static void deleteAll() throws Exception {
+	public static void deleteAll() throws SQLException {
 		SqlSession session = UtilFactory.getSqlSession(true);
 		try {
 			session.delete("buylist.deleteAll") ;
@@ -39,7 +40,7 @@ public class BuyListDAO {
 		}
 	}
 	
-	public static void delete(int mcode) throws Exception {
+	public static void delete(int mcode) throws SQLException {
 		SqlSession session = UtilFactory.getSqlSession(true);
 		try {
 			session.delete("buylist.delete",mcode) ;
@@ -48,7 +49,7 @@ public class BuyListDAO {
 		}
 	}
 	
-	public static ArrayList<BuyList> getBuyListAll() throws Exception {
+	public static ArrayList<BuyList> getBuyListAll() throws SQLException {
 		SqlSession session = UtilFactory.getSqlSession();
 		ArrayList<BuyList> selectAll = null;
 		try {
@@ -59,7 +60,7 @@ public class BuyListDAO {
 		return selectAll;
 	}
 	
-	public static BuyList getBuyList(int id) throws Exception {
+	public static BuyList getBuyList(int id) throws SQLException {
 		SqlSession session = UtilFactory.getSqlSession();
 		BuyList buylist = null;
 		try {

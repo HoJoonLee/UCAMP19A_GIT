@@ -18,6 +18,8 @@ public class ViewMain {
 		// TODO Auto-generated method stub
 		MarketDAO.deleteAll();
 		DealDAO.deleteAll();
+		
+		/*
 		MarketDAO.insert(new Market(1001, "아이스크림", 1000, 0));
 		MarketDAO.insert(new Market(1002, "삼겹살", 6000, 0));
 		MarketDAO.insert(new Market(1003, "아메리카노", 5000, 0));
@@ -40,6 +42,7 @@ public class ViewMain {
 			System.out.println(d);
 		}
 		*/
+		/*
 		BuyListDAO.deleteAll();
 		BuyListDAO.insert(new BuyList(1, "1"));
 		BuyListDAO.insert(new BuyList(2, "2"));
@@ -54,6 +57,7 @@ public class ViewMain {
 		for(BuyList d : temp){
 			System.out.println(d);
 		}
+		*/
 	}
 
 }

@@ -1,21 +1,15 @@
 ﻿package model.service;
 
+import java.sql.SQLException;
+
+import exception.DoubleException;
+
+import model.domain.Deal;
+import model.domain.Market;
+
 
 public interface MarketManagement {
-	//모든 검색
-	/*
-	public ArrayList<Dept> getDeptAll() throws Exception;
+	public abstract void insert(Market market) throws SQLException, DoubleException;
+	public abstract void addIteam(Deal deal) throws SQLException;
 	
-	//deptno로 검색
-	public Dept getDept(int deptno) throws Exception;
-	
-	//insert
-	public boolean insert(Dept dept) throws Exception;
-	
-	//update
-	public boolean update(int deptno, String newLoc) throws Exception;
-	
-	//delete
-	public boolean delete(int deptno) throws Exception;
-	*/
 }

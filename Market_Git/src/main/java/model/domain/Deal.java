@@ -5,7 +5,7 @@ public class Deal {
 	private String ddate;
 	private int mcode;
 	private int dquant;
-	private boolean flag;
+	private int flag;
 
 	public Deal() {
 		super();
@@ -19,7 +19,7 @@ public class Deal {
 		this.dquant = dquant;
 	}
 
-	public Deal(int dnum, String ddate, int mcode, int dquant, boolean flag) {
+	public Deal(int dnum, String ddate, int mcode, int dquant, int flag) {
 		super();
 		this.dnum = dnum;
 		this.ddate = ddate;
@@ -60,11 +60,11 @@ public class Deal {
 		this.dquant = dquant;
 	}
 
-	public boolean isFlag() {
+	public int isFlag() {
 		return flag;
 	}
 
-	public void setFlag(boolean flag) {
+	public void setFlag(int flag) {
 		this.flag = flag;
 	}
 
