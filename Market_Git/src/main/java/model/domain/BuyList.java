@@ -12,6 +12,12 @@ public class BuyList {
 		// TODO Auto-generated constructor stub
 	}
 
+	public BuyList(int id, String name) {
+		super();
+		this.id = id;
+		this.name = name;
+	}
+
 	public BuyList(int id, String name, int cost, int point, String buylist) {
 		super();
 		this.id = id;
@@ -59,6 +65,23 @@ public class BuyList {
 
 	public void setBuylist(String buylist) {
 		this.buylist = buylist;
+	}
+
+	@Override
+	public String toString() {
+		StringBuilder builder = new StringBuilder();
+		builder.append("BuyList [id=");
+		builder.append(id);
+		builder.append(", name=");
+		builder.append(name);
+		builder.append(", cost=");
+		builder.append(cost);
+		builder.append(", point=");
+		builder.append(point);
+		builder.append(", buylist=");
+		builder.append(buylist);
+		builder.append("]");
+		return builder.toString();
 	}
 
 }

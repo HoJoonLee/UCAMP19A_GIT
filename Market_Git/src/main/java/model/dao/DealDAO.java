@@ -62,7 +62,7 @@ public class DealDAO {
 		SqlSession session = UtilFactory.getSqlSession();
 		Deal deal = null;
 		try {
-			deal = (Deal)session.selectOne("deal.selectDeal");
+			deal = (Deal)session.selectOne("deal.selectDeal",dnum);
 		} finally{
 			session.close();			
 		}

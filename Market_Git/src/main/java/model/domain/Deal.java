@@ -4,6 +4,7 @@ public class Deal {
 	private int dnum;
 	private String ddate;
 	private int mcode;
+	private int dquant;
 	private boolean flag;
 
 	public Deal() {
@@ -11,11 +12,19 @@ public class Deal {
 		// TODO Auto-generated constructor stub
 	}
 
-	public Deal(int dnum, String ddate, int mcode, boolean flag) {
+	public Deal(int dnum, int mcode, int dquant) {
+		super();
+		this.dnum = dnum;
+		this.mcode = mcode;
+		this.dquant = dquant;
+	}
+
+	public Deal(int dnum, String ddate, int mcode, int dquant, boolean flag) {
 		super();
 		this.dnum = dnum;
 		this.ddate = ddate;
 		this.mcode = mcode;
+		this.dquant = dquant;
 		this.flag = flag;
 	}
 
@@ -41,6 +50,14 @@ public class Deal {
 
 	public void setMcode(int mcode) {
 		this.mcode = mcode;
+	}
+
+	public int getDquant() {
+		return dquant;
+	}
+
+	public void setDquant(int dquant) {
+		this.dquant = dquant;
 	}
 
 	public boolean isFlag() {

@@ -7,12 +7,12 @@
 
 	<insert id="dealIN" parameterType="deal">
 		insert into deal
-		values (#{dnum}, sysdate, #{mcode},0)
+		values (#{dnum}, sysdate, #{mcode},#{dquant},0)
 	</insert>
 	
 	<insert id="dealOut" parameterType="deal">
 		insert into deal
-		values (#{dnum}, sysdate, #{mcode},1)
+		values (#{dnum}, sysdate, #{mcode},#{dquant},1)
 	</insert>
 	
 	<delete id="deleteAll" >
@@ -27,11 +27,14 @@
 	</delete>
 
 	<select id="selectAll" resultType="deal">
-		select * from deal
+		select * 
+		from deal
 	</select>
 	
-	<select id="selectDeal" 	parameterType="int" resultType="deal">
-		select * from deal where dnum=#{dnum}
+	<select id="selectDeal" parameterType="int" resultType="deal">
+		select * 
+		from deal 
+		where dnum = #{dnum}
 	</select>
 
 </mapper>

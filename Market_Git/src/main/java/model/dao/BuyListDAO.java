@@ -63,7 +63,7 @@ public class BuyListDAO {
 		SqlSession session = UtilFactory.getSqlSession();
 		BuyList buylist = null;
 		try {
-			buylist = (BuyList)session.selectOne("buylist.selectBuyList");
+			buylist = (BuyList)session.selectOne("buylist.selectBuyList",id);
 		} finally{
 			session.close();			
 		}

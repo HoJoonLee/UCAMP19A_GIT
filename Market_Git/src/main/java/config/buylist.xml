@@ -7,7 +7,7 @@
 
 	<insert id="insert" parameterType="buylist">
 		insert into buylist
-		values (#{id}, #{name}, #{cost},#{point},#{buylist})
+		values (#{id}, #{name}, 0, 0, '')
 	</insert>
 	
 	<update id="update" parameterType="buylist">

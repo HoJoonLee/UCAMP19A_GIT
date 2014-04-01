@@ -1,6 +1,12 @@
 package main;
 
+import java.util.ArrayList;
+
+import model.dao.BuyListDAO;
+import model.dao.DealDAO;
 import model.dao.MarketDAO;
+import model.domain.BuyList;
+import model.domain.Deal;
 import model.domain.Market;
 
 public class ViewMain {
@@ -10,9 +16,6 @@ public class ViewMain {
 	 */
 	public static void main(String[] args) throws Exception{
 		// TODO Auto-generated method stub
-		MarketDAO.deleteAll();
-		MarketDAO.insert(new Market(1001, "아이스크림", 1000, 0));
-		MarketDAO.delete(1001);
 		
 	}
 
